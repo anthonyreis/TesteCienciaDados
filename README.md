@@ -42,7 +42,7 @@ Siga os passos abaixo para garantir que a instalação ocorra corretamente.
 <!-- USAGE EXAMPLES -->
 ## Utilizando
 
-<b>QUESTÕES 1-4</b><br>
+<b>QUESTÕES 1 - 4</b><br>
 Para utilizar os Scripts relacionados as questões de 1 à 4, basta rodar ``` python3 main.py ```<br>
 Assim todas as informações extraidas serão apresentadas na tela, e os gráficos serão criado na pasta <b>gráficos</b>.
 
