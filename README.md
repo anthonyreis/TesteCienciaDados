@@ -38,6 +38,10 @@ Siga os passos abaixo para garantir que a instalação ocorra corretamente.
    ```sh
    pip install pandas
    ```
+* reportlab
+   ```sh
+   pip install reportlab
+   ```
    
 <!-- USAGE EXAMPLES -->
 ## Utilizando
