@@ -68,7 +68,7 @@ def main():
     resultPredictionsOrig = correctPrediction(dfPred, dfTrueClass)
     resultPredictionsReplace = correctPrediction(dfPred, dfReplace)
 
-    # 
+    # Retorna o valor que houve maior e menor quantidade de predição, e 
 
     countPredicted = higherValue.higherPredictedValues(dfPred, dfReplace)
 
