@@ -1,8 +1,8 @@
 from sklearn.linear_model import RidgeCV
 from sklearn.model_selection import train_test_split
-import numpy as np
 import pandas as pd
-from sklearn.metrics import log_loss
+
+# Aplica cross-validation K-fold, analisando a predição dos dados com a flag 'revision'
 
 def crossValidationKFold(dataExpected, dataPredicted, dataFrame1, dataFrame2):
 
@@ -25,6 +25,8 @@ def crossValidationKFold(dataExpected, dataPredicted, dataFrame1, dataFrame2):
     for row in expectedFrame.T.iteritems():
         print(f"Esperado: {row[1][0]} - Obtido: {predict_y[i][0]:.2f}")
         i +=1
+
+# Separa os dados com a flag 'revision' dos demais
 
 def getByColumns(dataFrame, valueExpected, valuePredicted):
     dataExpected = {}

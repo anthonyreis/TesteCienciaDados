@@ -7,6 +7,8 @@ import getDescritiveStatistics
 import plotByValues
 import replaceEmptyValues
 
+# Retorna quantas predições foram feitas corretamente
+
 def correctPrediction(dataFrame1, dataFrame2):
     qtdAcertos = 0
 
@@ -15,6 +17,8 @@ def correctPrediction(dataFrame1, dataFrame2):
             qtdAcertos += 1
 
     return qtdAcertos
+
+# Retorna quantas predições tiveram uma probabilidade maior ou igual a passada para a função
 
 def getIntervalProb(dataFrame, probValue):
     qtd = 0
@@ -32,12 +36,15 @@ def plotGraphByFrame(dataFrame, ticks, ylabel):
     plt.ylabel(ylabel)
     plt.savefig(ylabel + '.png')
 
+# Retorna fraseologia com os dados descritivos
+
 def displayOutput(data, columnName):
     print(f"Média da coluna {columnName}: {data['mean']:.2f}")
     print(f"Desvio Padrão da coluna {columnName}: {data['std_deviation']:.2f}")
     print(f"Valor mais comum da coluna {columnName}: {data['most_common']:.2f}")
     print(f"Variância da coluna {columnName}: {data['variance']:.2f}")
     print('\n')
+    
 
 def main():
 
@@ -68,7 +75,7 @@ def main():
     resultPredictionsOrig = correctPrediction(dfPred, dfTrueClass)
     resultPredictionsReplace = correctPrediction(dfPred, dfReplace)
 
-    # Retorna o valor que houve maior e menor quantidade de predição, e 
+    # Retorna o valor que houve maior e menor quantidade de predição 
 
     countPredicted = higherValue.higherPredictedValues(dfPred, dfReplace)
 
@@ -98,13 +105,21 @@ def main():
     higher[3] = getIntervalProb(dfProb, 0.8)
     higher[4] = getIntervalProb(dfProb, 0.9)
 
+    # Analisa o modelo com cross-validation K-fold para verificar a corretude dos campos 'revision'
+
     crossValidation.getByColumns(dfStatus, dfPred, dfReplace)
+
+    # Retorna a precisão do modelo original
 
     accuracy = desempenho.calcDesempenho(dfPred, dfReplace)
     print(f"\nDesempenho do modelo por acurácia: {accuracy*100:.2f}%")
 
+    # Retorna o Mean Absolute Error do modelo original
+
     meanAbsoluteError = desempenho.meanAbsoluteError (dfPred, dfReplace)
     print(f"\nDesempenho do modelo por Mean Absolute Error: {100 - meanAbsoluteError:.2f}%")
+
+    # Plota gráficos de acordo com os valores passados
 
     plotByValues.plotGraph([countPredicted[0][1][0], countPredicted[0][1][1]], [str(countPredicted[0][0][0]), str(countPredicted[0][1][0])], 'Valor', 'Vezes', 'Valores de maior e menor predição', 'green', True, False)
     plotByValues.plotGraph([countPredicted[1][0][1], countPredicted[1][1][1]], [str(countPredicted[1][0][0]), str(countPredicted[1][1][0])], 'Valor', 'Vezes', 'Valores de maior e menor predição', 'red', True, False)

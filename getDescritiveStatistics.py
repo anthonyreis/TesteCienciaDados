@@ -1,3 +1,5 @@
+# Retorna dados descritivos relevantes quanto aos valores fornecidos
+
 def getStatistics(dataFrame):
     mean = dataFrame.mean()
     std_deviation = dataFrame.std()

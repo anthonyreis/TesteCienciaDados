@@ -1,6 +1,8 @@
 from collections import Counter
 import operator
 
+# Retorna a quantidade de ocorrências cada valor
+
 def countOccurrences(Dictvalues):
     counter = Counter(Dictvalues.values())
     
@@ -8,6 +10,8 @@ def countOccurrences(Dictvalues):
     minValue = min(counter.items(), key=operator.itemgetter(1))[0]
 
     return [[maxValue, counter[maxValue]], [minValue, counter[minValue]]]
+
+# Retorna quais valores obtiveram a melhor e pior taxa de acerto, e a melhor e pior taxa de erro na predição
 
 def higherPredictedValues(dataFrame1, dataFrame2):
     valueRight = {}

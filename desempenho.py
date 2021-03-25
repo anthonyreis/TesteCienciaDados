@@ -3,6 +3,8 @@ import statistics as st
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import log_loss
 
+# Retorna a precisão do modelo
+
 def calcDesempenho(dataFrame1, dataFrame2):
     qtdAcertos = 0
     qtdTotal = 0
@@ -14,6 +16,8 @@ def calcDesempenho(dataFrame1, dataFrame2):
         qtdTotal += 1
 
     return qtdAcertos/qtdTotal
+
+# Retorna o Mean Absolute Error do modelo
 
 def meanAbsoluteError(predicted, expected):
     meanAbsoluteError = mean_absolute_error(expected, predicted)

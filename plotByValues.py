@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 
+# Salva uma figura do gráfico de acordo com os parâmetros fornecidos
+
 def plotGraph(values, ticks, xLabel, yLabel, title, color, bar, new):
     if(new):
         plt.figure(figsize=(15, 6))
