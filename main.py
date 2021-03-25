@@ -6,35 +6,8 @@ from utils import higherValue
 from utils import getDescritiveStatistics
 from utils import plotByValues
 from utils import replaceEmptyValues
-
-# Retorna quantas predições foram feitas corretamente
-
-def correctPrediction(dataFrame1, dataFrame2):
-    qtdAcertos = 0
-
-    for row in dataFrame1.T.iteritems():
-        if(row[1][0] == dataFrame2.iat[row[0], 0]):
-            qtdAcertos += 1
-
-    return qtdAcertos
-
-# Retorna quantas predições tiveram uma probabilidade maior ou igual a passada para a função
-
-def getIntervalProb(dataFrame, probValue):
-    qtd = 0
-
-    for row in dataFrame.T.iteritems():
-        if(row[1][0] >= probValue):
-            qtd += 1
-
-    return qtd
-
-def plotGraphByFrame(dataFrame, ticks, ylabel):
-    dataFrame.plot.bar()
-    plt.xticks(ticks=ticks, rotation=360)
-    plt.xlabel("X")
-    plt.ylabel(ylabel)
-    plt.savefig(ylabel + '.png')
+from utils import correctPredictions
+from utils import intervalProb
 
 # Retorna fraseologia com os dados descritivos
 
@@ -72,8 +45,8 @@ def main():
 
     # Retorna a quantidade de predições correta, antes e após a substituição dos valores nulos
 
-    resultPredictionsOrig = correctPrediction(dfPred, dfTrueClass)
-    resultPredictionsReplace = correctPrediction(dfPred, dfReplace)
+    resultPredictionsOrig = correctPredictions.prediction(dfPred, dfTrueClass)
+    resultPredictionsReplace = correctPredictions.prediction(dfPred, dfReplace)
 
     # Retorna o valor que houve maior e menor quantidade de predição 
 
@@ -99,11 +72,11 @@ def main():
     displayOutput(resultReplace, 'True_class após substituição dos valores nulos')
 
     higher = [0] * 5
-    higher[0] = getIntervalProb(dfProb, 0.5)
-    higher[1] = getIntervalProb(dfProb, 0.6)
-    higher[2] = getIntervalProb(dfProb, 0.7)
-    higher[3] = getIntervalProb(dfProb, 0.8)
-    higher[4] = getIntervalProb(dfProb, 0.9)
+    higher[0] = intervalProb.getIntervalProb(dfProb, 0.5)
+    higher[1] = intervalProb.getIntervalProb(dfProb, 0.6)
+    higher[2] = intervalProb.getIntervalProb(dfProb, 0.7)
+    higher[3] = intervalProb.getIntervalProb(dfProb, 0.8)
+    higher[4] = intervalProb.getIntervalProb(dfProb, 0.9)
 
     # Analisa o modelo com cross-validation K-fold para verificar a corretude dos campos 'revision'
 
@@ -124,15 +97,12 @@ def main():
     accuracyScore = desempenho.accuracyScore(dfPred, dfReplace)
     print(f"\nDesempenho do modelo por Acurácia: {accuracyScore*100:.2f}%")
 
-
     # Plota gráficos de acordo com os valores passados
 
     plotByValues.plotGraph([countPredicted[0][1][0], countPredicted[0][1][1]], [str(countPredicted[0][0][0]), str(countPredicted[0][1][0])], 'Valor', 'Vezes', 'Valores de maior e menor predição', 'green', True, False)
     plotByValues.plotGraph([countPredicted[1][0][1], countPredicted[1][1][1]], [str(countPredicted[1][0][0]), str(countPredicted[1][1][0])], 'Valor', 'Vezes', 'Valores de maior e menor predição', 'red', True, False)
     plotByValues.plotGraph(higher, ['50%', '60%', '70%', '80%', '90%'], 'Porcentagem', 'Quantidade de acertos', 'Variação da Probabilidade de Acerto', 'blue', False, True)
     plotByValues.plotGraph([countPredicted[2], countPredicted[3]], ['Acertos', 'Erros'], 'Acertos e Erros', 'Quantidade', 'Comparativo entre Acertos e Erros', 'blue', True, True)
-
-    #plotGraphByFrame(dfPred, [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650])
     
 if __name__ == "__main__":
     main()
