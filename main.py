@@ -111,13 +111,19 @@ def main():
 
     # Retorna a precisão do modelo original
 
-    accuracy = desempenho.calcDesempenho(dfPred, dfReplace)
-    print(f"\nDesempenho do modelo por acurácia: {accuracy*100:.2f}%")
+    accuracy = desempenho.calcDesempenho(dfReplace, dfPred)
+    print(f"\nPrecisão do modelo: {accuracy*100:.2f}%")
 
     # Retorna o Mean Absolute Error do modelo original
 
     meanAbsoluteError = desempenho.meanAbsoluteError (dfPred, dfReplace)
     print(f"\nDesempenho do modelo por Mean Absolute Error: {100 - meanAbsoluteError:.2f}%")
+
+    # Retorna a acurácia do modelo
+
+    accuracyScore = desempenho.accuracyScore(dfPred, dfReplace)
+    print(f"\nDesempenho do modelo por Acurácia: {accuracyScore*100:.2f}%")
+
 
     # Plota gráficos de acordo com os valores passados
 

@@ -1,4 +1,0 @@
-pip install xlrd
-pip install sklearn
-pip install nptdms
-pip install textmining

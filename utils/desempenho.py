@@ -2,6 +2,7 @@ import pandas as pd
 import statistics as st
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import log_loss
+from sklearn.metrics import accuracy_score
 
 # Retorna a precisão do modelo
 
@@ -24,8 +25,7 @@ def meanAbsoluteError(predicted, expected):
 
     return meanAbsoluteError
 
-def logLoss(predicted, expected):
-    print(predicted)
-    log = log_loss(expected, predicted, eps=1e-15)
+def accuracyScore(predicted, expected):
+    acc = accuracy_score(expected, predicted)
 
-    return log
+    return acc
