@@ -9,7 +9,7 @@ Scripts desenvolvidos para o teste de Ciência de Dados da Smarkio.
 
 * [Python](https://www.python.org/)
 * [Pandas](https://pandas.pydata.org/)
-* [sklearn](https://scikit-learn.org/stable/)
+* [scikit-learn](https://scikit-learn.org/stable/)
 
 
 
@@ -30,7 +30,7 @@ Siga os passos abaixo para garantir que a instalação ocorra corretamente.
    ```sh
    pip install xldr
    ```
-* sklearn
+* scikit-learn
    ```sh
    pip install sklearn
    ```
