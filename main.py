@@ -1,11 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import crossValidation
-import desempenho
-import higherValue
-import getDescritiveStatistics
-import plotByValues
-import replaceEmptyValues
+from utils import crossValidation
+from utils import desempenho
+from utils import higherValue
+from utils import getDescritiveStatistics
+from utils import plotByValues
+from utils import replaceEmptyValues
 
 # Retorna quantas predições foram feitas corretamente
 
@@ -44,13 +44,13 @@ def displayOutput(data, columnName):
     print(f"Valor mais comum da coluna {columnName}: {data['most_common']:.2f}")
     print(f"Variância da coluna {columnName}: {data['variance']:.2f}")
     print('\n')
-    
+
 
 def main():
 
     # Extrai os dados da planilha, de acordo com a aba especificada
 
-    data = pd.read_excel (r'/home/anthonyreis/Área de Trabalho/teste_ml/teste_smarkio_Lbs.xls', sheet_name='Análise_ML')
+    data = pd.read_excel (r'teste_smarkio_Lbs.xls', sheet_name='Análise_ML')
     
     # Distribui dados da planilha, atribuindo cada coluna a uma variável
 

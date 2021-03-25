@@ -1,8 +1,10 @@
 import matplotlib.pyplot as plt
+import os
 
 # Salva uma figura do gráfico de acordo com os parâmetros fornecidos
 
 def plotGraph(values, ticks, xLabel, yLabel, title, color, bar, new):
+
     if(new):
         plt.figure(figsize=(15, 6))
 
@@ -15,5 +17,8 @@ def plotGraph(values, ticks, xLabel, yLabel, title, color, bar, new):
     plt.xlabel(xLabel)
     plt.ylabel(yLabel)
     plt.title(title)
+    file_name = xLabel + '.png'
     
-    plt.savefig(xLabel + '.png')
+    my_path = os.path.abspath('graficos/')
+    
+    plt.savefig(os.path.join(my_path, file_name))

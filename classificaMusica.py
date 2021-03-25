@@ -24,7 +24,7 @@ def TransformToList(listaLetra, df_list_letra, listaArtista, df_list_artista):
 
 def main():
 
-    data = pd.read_excel (r'/home/anthonyreis/Área de Trabalho/teste_ml/teste_smarkio_Lbs.xls', sheet_name='NLP')
+    data = pd.read_excel (r'teste_smarkio_Lbs.xls', sheet_name='NLP')
 
     dfLetra = pd.DataFrame(data, columns= ['letra'])
     dfArtista = pd.DataFrame(data, columns= ['artista'])
