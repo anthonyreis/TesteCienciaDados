@@ -46,7 +46,7 @@ Para utilizar os Scripts relacionados as questões de 1 à 4, basta rodar ``` py
 Assim todas as informações extraidas serão apresentadas na tela, e os gráficos serão criado na pasta <b>gráficos</b>.
 
 <b>QUESTÃO 5</b><br>
-Para utilizar o script relacionado à questão 5 basta rodar ```python3 classificaMusica.py```
+Para utilizar o script relacionado à questão 5 basta rodar ```python3 classificaMusica.py <Letra da música>```
 
 
 <!-- LICENSE -->
