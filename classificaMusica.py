@@ -1,4 +1,5 @@
 import pandas as pd
+import argparse
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import make_pipeline
@@ -22,7 +23,15 @@ def TransformToList(listaLetra, df_list_letra, listaArtista, df_list_artista):
 
     return [listaLetra, listaArtista]
 
+def setArgs():
+    parser = argparse.ArgumentParser(description='Informe uma letra de música para classificá-la entre Beyoncé ou Rihanna')
+    parser.add_argument('letra', help='Letra da música')
+    args = parser.parse_args()
+
+    return args.letra
+
 def main():
+    letra = setArgs()
 
     data = pd.read_excel (r'teste_smarkio_Lbs.xls', sheet_name='NLP')
 
@@ -41,7 +50,7 @@ def main():
 
     model.fit(resultList[0], resultList[1])
 
-    predicted = SentencePredict(model, ["Hello"])
+    predicted = SentencePredict(model, [letra])
 
     print(predicted)
     
