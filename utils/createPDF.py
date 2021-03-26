@@ -8,7 +8,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch, cm
 
-def createPDF(trueClassOrig, trueClassRep, predClass, prob, countPredicted, resultPredictionsOrig, resultPredictionsReplace, accuracy, meanAbsoluteError, accuracyScore):
+def createPDF(trueClassOrig, trueClassRep, predClass, prob, countPredicted, resultPredictionsOrig, resultPredictionsReplace, accuracy, meanAbsoluteError, accuracyScore, resultValidation):
 
     doc = SimpleDocTemplate("pdf/Resultados_Automatico.pdf",pagesize=landscape(A4),
                             rightMargin=72,leftMargin=72,
@@ -118,6 +118,9 @@ def createPDF(trueClassOrig, trueClassRep, predClass, prob, countPredicted, resu
     ptext = (f'<bullet>&bull;</bullet>Predições corretas feitas pelo modelo após substituição dos valores nulos:  {resultPredictionsReplace}<br/><br/><br/>')
     Story.append(Paragraph(ptext, styles["Bullet"]))
 
+    ptext = (f"<bullet>&bull;</bullet>Predições corretas dos valores de 'revision': {resultValidation[0]} do total de {resultValidation[1]}<br/><br/><br/>")
+    Story.append(Paragraph(ptext, styles["Bullet"]))
+
     ptext = '''
     <br/><br/><br/><font size=14><seq>. </seq> Gráficos Gerados</font> <br/><br/>
     '''
@@ -150,6 +153,20 @@ def createPDF(trueClassOrig, trueClassRep, predClass, prob, countPredicted, resu
     <font size=14><seq>. </seq>Métricas de Desempenho</font><br/><br/><br/>
     '''
     Story.append(Paragraph(ptext, styles["Bullet"]))
+
+    ptext = (f'''
+    No geral foi alcançada uma precisão que pode ser considerada satisfatória, 
+    dado o tamanho reduzido de dados disponíveis no modelo. 
+    Segundo a precisão e a acurácia foi obtido um desempenho de {accuracy*100:.2f}% de acerto nas predições, 
+    sua igualdade se deve ao fato de o modelo possivelmente não possuir divergências com falsos positivos e falsos negativos, 
+    que poderiam interferir no valor da acurácia. Então pode-se assumir que o modelo tem um grau de confusão baixo. 
+    Enquanto que o Mean Absolute Error aponta uma taxa de acerto de {100 - meanAbsoluteError:.2f}%, 
+    assim sendo possível inferir que o modelo mesmo errando ainda prediz valores próximos aos esperados. 
+    Quanto ao que pode ter interferido no alcance de um resultado melhor, 
+    deve ser considerado o tamanho da base de dados e também os campos vazios.<br/><br/><br/>
+    ''')
+
+    Story.append(Paragraph(ptext, styles["Normal"]))
 
     ptext=(f'<font size=13><bullet>&bull;</bullet>Precisão: ({accuracy*100:.2f}%)</font><br/><br/>')
     Story.append(Paragraph(ptext, styles["Bullet"]))

@@ -80,7 +80,9 @@ def main():
 
     # Analisa o modelo com cross-validation K-fold para verificar a corretude dos campos 'revision'
 
-    crossValidation.getByColumns(dfStatus, dfPred, dfReplace)
+    resultValidation = crossValidation.getByColumns(dfStatus, dfPred, dfReplace)
+
+    print(f"\nPredições corretas dos valores de 'revision': {resultValidation[0]} do total de {resultValidation[1]}")
 
     # Retorna a precisão do modelo original
 
@@ -104,7 +106,7 @@ def main():
     plotByValues.plotGraph(higher, ['50%', '60%', '70%', '80%', '90%'], 'Porcentagem', 'Quantidade de acertos', 'Variação da Probabilidade de Acerto', 'blue', False, True)
     plotByValues.plotGraph([countPredicted[2], countPredicted[3]], ['Acertos', 'Erros'], 'Acertos e Erros', 'Quantidade', 'Comparativo entre Acertos e Erros', 'blue', True, True)
 
-    createPDF.createPDF(resultTrueClass, resultReplace, resultPredClass, resultProb, countPredicted, resultPredictionsOrig, resultPredictionsReplace, accuracy, meanAbsoluteError, accuracyScore)
+    createPDF.createPDF(resultTrueClass, resultReplace, resultPredClass, resultProb, countPredicted, resultPredictionsOrig, resultPredictionsReplace, accuracy, meanAbsoluteError, accuracyScore, resultValidation)
 
 if __name__ == "__main__":
     main()

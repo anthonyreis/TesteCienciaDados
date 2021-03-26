@@ -21,10 +21,16 @@ def crossValidationKFold(dataExpected, dataPredicted, dataFrame1, dataFrame2):
     predict_y = regressor.predict(expectedFrame)
 
     i = 0
+    j = 0
 
     for row in expectedFrame.T.iteritems():
+        if(row[1][0] == predict_y[i][0]):
+            j += 1
+
         print(f"Esperado: {row[1][0]} - Obtido: {predict_y[i][0]:.2f}")
         i +=1
+    
+    return [j, i]
 
 # Separa os dados com a flag 'revision' dos demais
 
@@ -39,4 +45,6 @@ def getByColumns(dataFrame, valueExpected, valuePredicted):
             dataPredicted[i] = valuePredicted.iat[row[0], 0]
             i += 1
             
-    crossValidationKFold(dataExpected, dataPredicted, valueExpected, valuePredicted)
+    retorno = crossValidationKFold(dataExpected, dataPredicted, valueExpected, valuePredicted)
+
+    return retorno
