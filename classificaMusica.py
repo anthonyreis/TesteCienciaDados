@@ -3,25 +3,12 @@ import argparse
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import make_pipeline
+from utils import transformToList
 
-def SentencePredict(model, sentence):
+def sentencePredict(model, sentence):
     result = model.predict(sentence)
 
     return result[0]
-
-def TransformToList(listaLetra, df_list_letra, listaArtista, df_list_artista):
-    i = 0
-    j = 0
-
-    for item in df_list_letra:
-        listaLetra[i] = str(item[0])
-        i += 1
-
-    for item in df_list_artista:
-        listaArtista[j] = str(item[0])
-        j += 1
-
-    return [listaLetra, listaArtista]
 
 def setArgs():
     parser = argparse.ArgumentParser(description='Informe uma letra de música para classificá-la entre Beyoncé ou Rihanna')
@@ -29,6 +16,7 @@ def setArgs():
     args = parser.parse_args()
 
     return args.letra
+
 
 def main():
     letra = setArgs()
@@ -46,11 +34,11 @@ def main():
     df_list_letra = dfLetra.values.tolist()
     df_list_artista = dfArtista.values.tolist()
 
-    resultList = TransformToList(listaLetra, df_list_letra, listaArtista, df_list_artista)
+    resultList = transformToList.transformList(listaLetra, df_list_letra, listaArtista, df_list_artista)
 
     model.fit(resultList[0], resultList[1])
 
-    predicted = SentencePredict(model, [letra])
+    predicted = sentencePredict(model, [letra])
 
     print(predicted)
     

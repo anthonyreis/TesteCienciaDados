@@ -8,6 +8,7 @@ from utils import plotByValues
 from utils import replaceEmptyValues
 from utils import correctPredictions
 from utils import intervalProb
+from utils import createPDF
 
 # Retorna fraseologia com os dados descritivos
 
@@ -67,6 +68,7 @@ def main():
     print('\n')
 
     displayOutput(resultPredClass, 'Pred_class')
+    createPDF.createPDF( "Média da coluna Pred_class: " + str(resultPredClass['mean']))
     displayOutput(resultProb, 'probabilidade')
     displayOutput(resultTrueClass, 'True_class')
     displayOutput(resultReplace, 'True_class após substituição dos valores nulos')
