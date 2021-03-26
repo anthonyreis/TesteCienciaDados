@@ -57,7 +57,7 @@ Siga os passos abaixo para garantir que a instalação ocorra corretamente.
 
 <b>QUESTÕES 1 - 4</b><br>
 Para utilizar os Scripts relacionados as questões de 1 à 4, basta rodar ``` python3 main.py ```<br>
-Assim todas as informações extraidas serão apresentadas na tela, e os gráficos serão criado na pasta <b>gráficos</b>.
+Assim todas as informações extraidas serão apresentadas na tela, além de gerar um pdf na pasta <b>pdf</b> e, também os gráficos serão criado na pasta <b>gráficos</b>.
 
 <b>QUESTÃO 5</b><br>
 Para utilizar o script relacionado à questão 5 basta rodar ```python3 classificaMusica.py <Letra da música>```
