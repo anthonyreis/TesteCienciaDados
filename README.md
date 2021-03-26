@@ -27,10 +27,7 @@ Siga os passos abaixo para garantir que a instalação ocorra corretamente.
    git clone https://github.com/anthonyreis/TesteCienciaDados.git
    ```
 2. Instale as bibliotecas
-* xldr
-   ```sh
-   pip install xldr
-   ```
+
 * scikit-learn
    ```sh
    pip install sklearn
