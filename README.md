@@ -3,9 +3,9 @@
 <!-- ABOUT THE PROJECT -->
 ## Sobre o Projeto
 
-Scripts desenvolvidos para o teste de Ciência de Dados da Smarkio. Dentre as tecnologias empregadas, está a bilioteca Pandas, para lidar com os dados, a biblioteca Scikit-Learn para as métricas de cálculo de desempenho do modelo, também a xldr para tratar os arquivos csv e ReportLab para criação de PDFs. Os algoritmos utilizados para o treinamento e predição foram o Cross-Validation K-Fold e Naive Bayes.
+Scripts desenvolvidos para o teste de Ciência de Dados da Smarkio. Dentre as tecnologias empregadas, está a bilioteca Pandas, para lidar com os dados, a biblioteca Scikit-Learn para as métricas de cálculo de desempenho do modelo e ReportLab para criação de PDFs. Os algoritmos utilizados para o treinamento e predição foram o Cross-Validation K-Fold e Naive Bayes.
 
-### Desenvolvido Utilizando
+## Desenvolvido Utilizando
 
 * [Python](https://www.python.org/)
 * [Pandas](https://pandas.pydata.org/)
@@ -27,6 +27,13 @@ Siga os passos abaixo para garantir que a instalação ocorra corretamente.
    git clone https://github.com/anthonyreis/TesteCienciaDados.git
    ```
 2. Instale as bibliotecas
+
+### Script para instalar todas as dependências
+
+   ```sh
+   python3 install_dep.py
+   ```
+### Caso preferir pode instalar manualmente cada uma
 
 * scikit-learn
    ```sh
