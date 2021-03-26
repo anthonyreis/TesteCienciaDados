@@ -10,7 +10,7 @@ from reportlab.lib.units import inch, cm
 
 def createPDF(trueClassOrig, trueClassRep, predClass, prob, countPredicted, resultPredictionsOrig, resultPredictionsReplace, accuracy, meanAbsoluteError, accuracyScore):
 
-    doc = SimpleDocTemplate("Resultados_Automatico.pdf",pagesize=landscape(A4),
+    doc = SimpleDocTemplate("pdf/Resultados_Automatico.pdf",pagesize=landscape(A4),
                             rightMargin=72,leftMargin=72,
                             topMargin=72,bottomMargin=18)
 
