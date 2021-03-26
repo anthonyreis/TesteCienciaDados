@@ -37,7 +37,15 @@ Siga os passos abaixo para garantir que a instalação ocorra corretamente.
 * Pandas
    ```sh
    pip install pandas
-   ```
+   ``` 
+* reportlab
+   ```sh
+   pip install reportlab
+   ``` 
+* svglib
+   ```sh
+   pip install svglib
+   ``` 
 
 <!-- USAGE EXAMPLES -->
 ## Utilizando
