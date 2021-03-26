@@ -10,6 +10,7 @@ Scripts desenvolvidos para o teste de Ciência de Dados da Smarkio. Dentre as te
 * [Python](https://www.python.org/)
 * [Pandas](https://pandas.pydata.org/)
 * [scikit-learn](https://scikit-learn.org/stable/)
+* [ReportLab](https://www.reportlab.com/)
 
 
 
