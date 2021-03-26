@@ -7,6 +7,7 @@ from utils import plotByValues
 from utils import replaceEmptyValues
 from utils import correctPredictions
 from utils import intervalProb
+from utils import createPDF
 
 # Retorna fraseologia com os dados descritivos
 
@@ -102,6 +103,8 @@ def main():
     plotByValues.plotGraph([countPredicted[1][0][1], countPredicted[1][1][1]], [str(countPredicted[1][0][0]), str(countPredicted[1][1][0])], 'Valor', 'Vezes', 'Valores de maior e menor predição', 'red', True, False)
     plotByValues.plotGraph(higher, ['50%', '60%', '70%', '80%', '90%'], 'Porcentagem', 'Quantidade de acertos', 'Variação da Probabilidade de Acerto', 'blue', False, True)
     plotByValues.plotGraph([countPredicted[2], countPredicted[3]], ['Acertos', 'Erros'], 'Acertos e Erros', 'Quantidade', 'Comparativo entre Acertos e Erros', 'blue', True, True)
-    
+
+    createPDF.createPDF(resultTrueClass, resultReplace, resultPredClass, resultProb, countPredicted, resultPredictionsOrig, resultPredictionsReplace, accuracy, meanAbsoluteError, accuracyScore)
+
 if __name__ == "__main__":
     main()
