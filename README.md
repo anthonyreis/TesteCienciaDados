@@ -3,7 +3,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Sobre o Projeto
 
-Scripts desenvolvidos para o teste de Ciência de Dados da Smarkio. Dentre as tecnologias empregadas, está a bilioteca Pandas, para lidar com os dados, a biblioteca Scikit-Learn para as métricas de cálculo de desempenho do modelo e ReportLab para criação de PDFs. Os algoritmos utilizados para o treinamento e predição foram o Cross-Validation K-Fold e Naive Bayes.
+Scripts desenvolvidos para o teste de Ciência de Dados da Smarkio. Desenvolvido utilizando a linguagem Python, entre as tecnologias empregadas, está a bilioteca Pandas, para lidar com os dados, a biblioteca Scikit-Learn para as métricas de cálculo de desempenho do modelo e ReportLab para criação de PDFs. Os algoritmos utilizados para o treinamento e predição foram o Cross-Validation K-Fold e Naive Bayes.
 
 ## Desenvolvido Utilizando
 
